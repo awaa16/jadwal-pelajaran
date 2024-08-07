@@ -34,13 +34,13 @@ export async function ambiljadwalpelajaran() {
   cuplikanKueri.forEach((dok) => {
     hasil.push({
       id: dok.id,
-      hari: dok.data().nomor,
-      jam: dok.data().nama,
-      kelas: dok.data().nis,
-      mapel: dok.data().tanggal,
-      namaguru: dok.data().alamat,
-      waktu: dok.data().notlpn,
-      
+      hari: dok.data().hari,
+      jam: dok.data().jam,
+      kelas: dok.data().kelas,
+      mapel: dok.data().mapel,
+      namaguru: dok.data().namaguru,
+      waktu: dok.data().waktu,
+
     });
   });
 
@@ -51,17 +51,17 @@ export function formatAngka(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
 
-export async function tambahjadwalpelajaran(hari, jam,waktu, mapel, namaguru, kelas,) {
+export async function tambahjadwalpelajaran(hari, jam, waktu, mapel, namaguru, kelas, ) {
   try {
     const dokRef = await addDoc(collection(db, 'jadwalpelajaran'), {
-  
-      hari:haru,
-      jam:jam,
-      waktu:waktu,
-      mapel:mapel,
-      kelas:kelas,
-      namaguru:namaguru,
-      
+
+      hari: haru,
+      jam: jam,
+      waktu: waktu,
+      mapel: mapel,
+      kelas: kelas,
+      namaguru: namaguru,
+
 
     });
     console.log('Berhasil menambah jadwalpelajaran' + dokRef.id);
@@ -73,7 +73,7 @@ export async function tambahjadwalpelajaran(hari, jam,waktu, mapel, namaguru, ke
 export async function hapusjadwalpelajaran(docid) {
   await deleteDoc(doc(db, "jadwalpelajaran", docid));
 }
-export async function ubahajadwalpelajaran(docId, hari, jam,waktu, kelas, mapel, namagur) {
+export async function ubahajadwalpelajaran(docId, hari, jam, waktu, kelas, mapel, namagur) {
   await updateDoc(doc(db, "jadwalpelajaran", docId), {
     hari: nama,
     jam: nis,

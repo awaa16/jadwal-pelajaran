@@ -39,7 +39,7 @@
     import { ambiljadwalpelajaran, formatAngka, hapusjadwalpelajaran } from './main.js';
 
     $(document).ready(async function() {
-      let elemenDaftar = $("#jadwal-pelajaran.html> tbody");
+      let elemenDaftar = $("#jadwalpelajaran > tbody");
       let daftarjadwalpelajaran = await ambiljadwalpelajaran();
       let nomor = 1;
 
