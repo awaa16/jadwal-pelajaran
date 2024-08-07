@@ -25,8 +25,8 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-export async function ambilJadwalpelajaran() {
-  const refDokumen = collection(db, "Jadwalpelajaran");
+export async function ambiljadwalpelajaran() {
+  const refDokumen = collection(db, "jadwalpelajaran");
   const kueri = query(refDokumen, orderBy("mapel"));
   const cuplikanKueri = await getDocs(kueri);
 
@@ -51,9 +51,9 @@ export function formatAngka(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
 
-export async function tambahabsensi(hari, jam,waktu, mapel, namaguru, kelas,) {
+export async function tambahjadwalpelajaran(hari, jam,waktu, mapel, namaguru, kelas,) {
   try {
-    const dokRef = await addDoc(collection(db, 'Jadwalpelajaran'), {
+    const dokRef = await addDoc(collection(db, 'jadwalpelajaran'), {
   
       hari:haru,
       jam:jam,
@@ -64,16 +64,16 @@ export async function tambahabsensi(hari, jam,waktu, mapel, namaguru, kelas,) {
       
 
     });
-    console.log('Berhasil menambah Jadwalpelajaran' + dokRef.id);
+    console.log('Berhasil menambah jadwalpelajaran' + dokRef.id);
   } catch (e) {
-    console.log('Gagal menambah Jadwalpelajaran ' + e);
+    console.log('Gagal menambah jadwalpelajaran ' + e);
   }
 }
 
 export async function hapusjadwalpelajaran(docid) {
-  await deleteDoc(doc(db, "Jadwalpelajaran", docid));
+  await deleteDoc(doc(db, "jadwalpelajaran", docid));
 }
-export async function ubahaJadwalpelajaran(docId, hari, jam,waktu, kelas, mapel, namagur) {
+export async function ubahajadwalpelajaran(docId, hari, jam,waktu, kelas, mapel, namagur) {
   await updateDoc(doc(db, "Jadwalpelajaran", docId), {
     hari: nama,
     jam: nis,
@@ -85,8 +85,8 @@ export async function ubahaJadwalpelajaran(docId, hari, jam,waktu, kelas, mapel,
   });
 }
 
-export async function ambilJadwalpelajaran(docId) {
-  const docRef = await doc(db, "Jadwalpelajaran", docId);
+export async function ambiljadwalpelajaran(docId) {
+  const docRef = await doc(db, "jadwalpelajaran", docId);
   const docSnap = await getDoc(docRef);
 
   return await docSnap.data();

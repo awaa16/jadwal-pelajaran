@@ -36,7 +36,7 @@
 
 
   <script type="module">
-    import { ambiljadwalpelajaran, formatAngka, hapusJadwalpelajaran } from './main.js';
+    import { ambiljadwalpelajaran, formatAngka, hapusjadwalpelajaran } from './main.js';
 
     $(document).ready(async function() {
       let elemenDaftar = $("#jadwal-pelajaran.html> tbody");
@@ -70,7 +70,7 @@
       $('.tombol-hapus').click(async function() {
         $(this).attr('disabled', 'disabled');
         $('#' + $(this).attr('data')).show();
-        await hapusJadwalpelajaran($(this).attr('data'));
+        await hapusjadwalpelajaran($(this).attr('data'));
         location.reload();
       });
       $('.link-ubah').click(async function() {
@@ -85,7 +85,7 @@
   <footer class="py-3 bg-dark-subtle mt-auto">
     <ul class="nav justify-content-center border-bottom pb-3 mb-3">
       <li class="nav-item"><a href="index.html" class="nav-link px-2 text-body-secondary">Beranda</a></li>
-      <li class="nav-item"><a href="form-data-absensi.html" class="nav-link px-2 text-body-secondary">jadwal pelajaran kelas xii</a></li>
+      <li class="nav-item"><a href="form-data-jadwalpelajaran.html" class="nav-link px-2 text-body-secondary">JADWAL PELAJARAN SMK INCHER </a></li>
     </ul>
     <p class="text-center text-body-secondary">&copy; 2024 MAPEL SISWA</p>
   </footer>
