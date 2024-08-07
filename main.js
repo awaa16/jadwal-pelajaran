@@ -74,7 +74,7 @@ export async function hapusjadwalpelajaran(docid) {
   await deleteDoc(doc(db, "jadwalpelajaran", docid));
 }
 export async function ubahajadwalpelajaran(docId, hari, jam,waktu, kelas, mapel, namagur) {
-  await updateDoc(doc(db, "Jadwalpelajaran", docId), {
+  await updateDoc(doc(db, "jadwalpelajaran", docId), {
     hari: nama,
     jam: nis,
     waktu: tanggal,
@@ -85,7 +85,7 @@ export async function ubahajadwalpelajaran(docId, hari, jam,waktu, kelas, mapel,
   });
 }
 
-export async function ambiljadwalpelajaran(docId) {
+export async function ambiljadwal(docId) {
   const docRef = await doc(db, "jadwalpelajaran", docId);
   const docSnap = await getDoc(docRef);
 

@@ -40,10 +40,10 @@
 
     $(document).ready(async function() {
       let elemenDaftar = $("#jadwal-pelajaran.html> tbody");
-      let jadwalpelajaran = await ambiljadwalpelajaran();
+      let daftarjadwalpelajaran = await ambiljadwalpelajaran();
       let nomor = 1;
 
-      daftarabsensi.forEach((data) => {
+      daftarjadwalpelajaran.forEach((data) => {
         elemenDaftar.append(
           '<tr>' +
           '<th>' + nomor + '</th>' +
