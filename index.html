@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Absensi Siswa Kls xI</title>
+  <title>JADWAL PELAJARAN CLAS XII</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
@@ -15,18 +15,17 @@
 
 <body>
 
-  <h1>Daftar Data Absensi Kls xI</h1>
-  <table class="table" id="daftar-absensi">
+  <h1>JADWAL PELAJARAN CLAS XII</h1>
+  <table class="table" id="Jadwalpelajaran">
     <thead>
       <tr>
         <th scope="col">#</th>
-        <th scope="col">nama</th>
-        <th scope="col">Nis</th>
-        <th scope="col">tanggal</th>
-        <th scope="col">Alamat</th>
-        <th scope="col">notlpn</th>
-        <th scope="col">kelas</th>
-        <th scope="col">keterangan</th>
+        <th scope="col">HARI</th>
+        <th scope="col">JAM</th>
+        <th scope="col">WAKTU</th>
+        <th scope="col">KELAS</th>
+        <th scope="col">MAPEL</th>
+        <th scope="col">NAMA GURU</th>
       </tr>
     </thead>
     <tbody>
@@ -37,24 +36,23 @@
 
 
   <script type="module">
-    import { ambilDaftarabsensi, formatAngka, hapusabsensi } from './main.js';
+    import { ambiljadwalpelajaran, formatAngka, hapusJadwalpelajaran } from './main.js';
 
     $(document).ready(async function() {
-      let elemenDaftar = $("#daftar-absensi> tbody");
-      let daftarabsensi = await ambilDaftarabsensi();
+      let elemenDaftar = $("#jadwal-pelajaran.html> tbody");
+      let jadwalpelajaran = await ambiljadwalpelajaran();
       let nomor = 1;
 
       daftarabsensi.forEach((data) => {
         elemenDaftar.append(
           '<tr>' +
           '<th>' + nomor + '</th>' +
-          '<td>' + data.nama + '</td>' +
-          '<td>' + data.nis + '</td>' +
-          '<td>' + data.tanggal+ '</td>'+
-          '<td>' + data.alamat+ '</td>'+
-          '<td>' + data.notlpn +'</td>' +
-          '<td>' + data.kelas + '</td>' +
-          '<td>' + data.keterangan + '</td>' +
+          '<td>' + data.hari + '</td>' +
+          '<td>' + data.jam + '</td>' +
+          '<td>' + data.waktu+ '</td>'+
+          '<td>' + data.kelas+ '</td>'+
+          '<td>' + data.mapel +'</td>' +
+          '<td>' + data.namaguru+ '</td>' +
           '<td>' + '<button class="btn btn-danger tombol-hapus" data>' + '<td class="stack-up">' +
           ' <a href="#" class="btn btn-warning link-ubah"  data="' +
           data.id +
@@ -72,11 +70,11 @@
       $('.tombol-hapus').click(async function() {
         $(this).attr('disabled', 'disabled');
         $('#' + $(this).attr('data')).show();
-        await hapusabsensi($(this).attr('data'));
+        await hapusJadwalpelajaran($(this).attr('data'));
         location.reload();
       });
       $('.link-ubah').click(async function() {
-        window.location.replace('ubah-absensi.html?docId=' + $(this).attr('data'));
+        window.location.replace('ubah-jadwal-pelajaran.html?docId=' + $(this).attr('data'));
       })
 
       $('#loader').hide();
@@ -87,9 +85,9 @@
   <footer class="py-3 bg-dark-subtle mt-auto">
     <ul class="nav justify-content-center border-bottom pb-3 mb-3">
       <li class="nav-item"><a href="index.html" class="nav-link px-2 text-body-secondary">Beranda</a></li>
-      <li class="nav-item"><a href="form-data-absensi.html" class="nav-link px-2 text-body-secondary">Lihat Absen</a></li>
+      <li class="nav-item"><a href="form-data-absensi.html" class="nav-link px-2 text-body-secondary">jadwal pelajaran kelas xii</a></li>
     </ul>
-    <p class="text-center text-body-secondary">&copy; 2024 ABSEN SISWA</p>
+    <p class="text-center text-body-secondary">&copy; 2024 MAPEL SISWA</p>
   </footer>
 </body>
 
