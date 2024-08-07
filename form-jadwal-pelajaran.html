@@ -17,7 +17,7 @@
   <form class="mb-3">
     <div class="mb-3">
       <label class="form-label">HARI</label>
-      <input type="text" class="form-control" id="input-hari">
+      <input type="label" class="form-control" id="input-hari">
     </div>
     <div class="mb-3">
       <label class="form-label">JAM </label>
@@ -30,7 +30,12 @@
 
     <div class="mb-3">
       <label class="form-label">KELAS</label>
-      <input type="text" class="form-control" id="input-kelas">
+      <select class="form-select" aria-label="Default select example">
+  
+  <option value="1">X</option>
+  <option value="2">XI</option>
+  <option value="3">XII</option>
+</select>
     </div>
 
     <div class="mb-3">
@@ -43,13 +48,13 @@
       <input type="text" class="form-control" id="input-namaguru">
     </div>
 
-    <button type="submit" class="btn btn-primary" id="tombol-ubah">Simpan</button>
+    <button type="submit" class="btn btn-primary" id="tombol-ubah"> TEKAN YANG INI</button>
   </form>
 
   <a href="index.html"></a>
 
   <script type="module">
-    import { ubahabsensi, ambiljadwalpelajaran } from './main.js';
+    import { ubahjadwalpelajaran, ambiljadwalpelajaran } from './main.js';
 
     let tombolubah = document.getElementById('tombol-ubah');
     let elementanggal = document.getElementById('input-hari');
