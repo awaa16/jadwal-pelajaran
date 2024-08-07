@@ -21,7 +21,7 @@
     </div>
     <div class="mb-3">
       <label class="form-label">JAM </label>
-      <input type="date" class="form-control" id="input-jam">
+      <input type="time" class="form-control" id="input-jam">
     </div>
     <div class="mb-3">
       <label class="form-label">WAKTU</label>
@@ -69,11 +69,11 @@
     const docId = parameterURL.get('docId')
     const absensi = await ambiljadwal(docId);
 
-    elemenhari.value = jadwalpelajaran.hari;
-    elemenjam.value = jadwalpelajaran.jam;
-    elemenwaktu.value = jadwalpelajaran.waktu;
-    elemenkelas.value = jadwalpelajaran.kelas;
-    elemennamaguru.value = jadwalpelajaran.namaguru;
+    elemenhari.value = jadwal.hari;
+    elemenjam.value = jadwal.jam;
+    elemenwaktu.value = jadwal.waktu;
+    elemenkelas.value = jadwal.kelas;
+    elemennamaguru.value = jadwal.namaguru;
 
     tombolubah.addEventListener('click', async function(el) {
       el.preventDefault();
