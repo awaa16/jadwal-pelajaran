@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Daftar Absensi kls xI</title>
+  <title>Daftar jaw</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
@@ -12,7 +12,7 @@
 </head>
 
 <body class="m-3">
-  <h1>Daftar absensi Kls xi</h1>
+  <h1>Daftar Jadwal pelajaran</h1>
 
   <form class="mb-3">
     <div class="mb-3">
@@ -21,7 +21,7 @@
     </div>
     <div class="mb-3">
       <label class="form-label">JAM </label>
-      <input type="date" class="form-control" id="input-tanggal">
+      <input type="time" class="form-control" id="input-tanggal">
     </div>
     <div class="mb-3">
       <label class="form-label">WAKTU</label>
@@ -43,37 +43,29 @@
       <input type="text" class="form-control" id="input-kelas">
     </div>
 
-    <div class="mb-3">
-      <label class="form-label">Keterangan</label>
-      <input type="text" class="form-control" id="input-keterangan">
-    </div>
-
     <button type="submit" class="btn btn-primary" id="tombol-tambah">Simpan</button>
   </form>
 
-  <a href="index.html">Lihat absensi siswa</a>
+  <a href="index.html">Lihat jadwalpelajaran</a>
 
   <script type="module">
-    import { tambahabsensi } from './main.js';
+    import { tambahjadwalpelajaran} from './main.js';
 
     let tombolTambah = document.getElementById('tombol-tambah');
-    let elementanggal = document.getElementById('input-tanggal');
-    let elemennis = document.getElementById('input-nis');
-    let elemennama = document.getElementById('input-nama');
-    let elemenalamat = document.getElementById('input-alamat');
-    let elemennoTlpn = document.getElementById('input-notlpn');
+    let elemenhari= document.getElementById('input-hari');
+    let elemenjam = document.getElementById('input-jam');
+    let elemenwaktu = document.getElementById('input-waktu');
+    let elemenmapel= document.getElementById('input-mapel');
     let elemenkelas = document.getElementById('input-kelas');
-    let elemenketerangan = document.getElementById('input-keterangan');
+    let elemenamaguru= document.getElementById('input-namaguru');
+    
 
     tombolTambah.addEventListener('click', async function(e) {
       e.preventDefault();
+      await tambahjadwalpelajaran(elemenhari.value, elemenjam.value, elemenwaktu.value, elemenmapel.value, elemenkelas.value, elemenamaguru.value);
 
-
-      await tambahabsensi(elemennama.value, elementanggal.value, elemennis.value, elemenalamat.value, elemennoTlpn.value, elemenkelas.value, elemenketerangan.value);
-
-      window.location.href = 'index.html';
-
-    });
+      window.location.href = 'index.html'
+    })
   </script>
 
 </body>
