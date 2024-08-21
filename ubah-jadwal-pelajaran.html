@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Daftar Absensi kls xI</title>
+  <title>Daftar jadwal pelajaran</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
@@ -12,99 +12,95 @@
 </head>
 
 <body class="m-3">
-  <h1>Daftar ubah absensi Kls xii</h1>
+  <h1>UBAH JADWAl PELAJARAN CLAS XII</h1>
 
-  <form class="mb-3">
-    <div class="mb-3">
-      <label class="form-label">Nama siswa</label>
-      <input type="text" class="form-control" id="input-nama">
-    </div>
-    <div class="mb-3">
-      <label class="form-label">Tanggal </label>
-      <input type="date" class="form-control" id="input-tanggal">
-    </div>
-    <div class="mb-3">
-      <label class="form-label">Nis</label>
-      <input type="text" class="form-control" id="input-nis">
-    </div>
+<form class="mb-3">
+  <div class="mb-3">
+    <label class="form-label">HARI</label>
+    <input type="label" class="form-control" id="input-hari">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">JAM </label>
+    <input type="time" class="form-control" id="input-jam">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">WAKTU</label>
+    <input type="text" class="form-control" id="input-waktu">
+  </div>
 
-    <div class="mb-3">
-      <label class="form-label">Alamat</label>
-      <input type="text" class="form-control" id="input-alamat">
-    </div>
+  <div class="mb-3">
+    <label class="form-label">KELAS</label>
+    <select class="form-select" aria-label="Default select example">
 
-    <div class="mb-3">
-      <label class="form-label">Notlpn</label>
-      <input type="text" class="form-control" id="input-notlpn">
-    </div>
-
-    <div class="mb-3">
-      <label class="form-label"> Kelas</label></label>
-      <input type="text" class="form-control" id="input-kelas">
-    </div>
-
-    <div class="mb-3">
-      <label class="form-label">Keterangan</label>
-      <input type="text" class="form-control" id="input-keterangan">
-    </div>
-
-    <button type="submit" class="btn btn-primary" id="tombol-ubah">Simpan</button>
-  </form>
-
-  <a href="index.html"></a>
-
-  <script type="module">
-    import { ubahabsensi, ambilabsensi } from './main.js';
-
-    let tombolubah = document.getElementById('tombol-ubah');
-    let elementanggal = document.getElementById('input-tanggal');
-    let elemennis = document.getElementById('input-nis');
-    let elemennama = document.getElementById('input-nama');
-    let elemenalamat = document.getElementById('input-alamat');
-    let elemennotlpn = document.getElementById('input-notlpn');
-    let elemenkelas = document.getElementById('input-kelas');
-    let elemenketerangan = document.getElementById('input-keterangan');
-
-    const queryString = window.location.search
-    const parameterURL = new URLSearchParams(queryString);
-    const docId = parameterURL.get('docId')
-    const absensi = await ambilabsensi(docId);
+      <option value="1">X</option>
+      <option value="2">XI</option>
+      <option value="3">XII</option>
+    </select>
+  </div>
 
 
+  <div class="mb-3">
+    <label class="form-label">MAPEL</label>
+    <input type="text" class="form-control" id="input-mapel">
+  </div>
 
-    elementanggal.value = absensi.tanggal;
-    elemennama.value = absensi.nama;
-    elemennis.value = absensi.nis;
-    elemenalamat.value = absensi.alamat;
-    elemenkelas.value = absensi.kelas;
-    elemenketerangan.value = absensi.keterangan;
+  <div class="mb-3">
+    <label class="form-label"> NAMA GURU </label></label></label>
+    <input type="text" class="form-control" id="input-namaguru">
+  </div>
 
+  <button type="submit" class="btn btn-primary" id="tombol-ubah"> TEKAN YANG INI</button>
+</form>
 
-    tombolubah.addEventListener('click', async function(el) {
-      el.preventDefault();
+<a href="index.html"></a>
 
-      console.log(elementanggal.value);
-      console.log(elemennama.value);
-      console.log(elemennis.value);
-      console.log(elemenalamat.value);
-      console.log(elemennotlpn.value);
-      console.log(elemenkelas.value);
-      console.log(elemenketerangan.value);
+<script type="module">
+  import { ubahjadwalpelajaran, ambiljadwalpelajaran } from './main.js';
 
-      await ubahabsensi(docId, elemennama.value, elementanggal.value, elemennis.value, elemenalamat.value, elemennotlpn.value, elemenkelas.value, elemenketerangan.value);
+  let tombolubah = document.getElementById('tombol-ubah');
+    let elementanggal = document.getElementById('input-hari');
+    let elemennis = document.getElementById('input-jam');
+    let elemennama = document.getElementById('input-waktu');
+    let elemenalamat = document.getElementById('input-kelas');
+    let elemennotlpn = document.getElementById('input-mapel');
+    let elemenkelas = document.getElementById('input-namaguru');
 
-      window.location.href = 'index.html';
+  const queryString = window.location.search
+  const parameterURL = new URLSearchParams(queryString);
+  const docId = parameterURL.get('docId')
+  const absensi = await ambiljadwal(docId);
 
-    });
-  </script>
+  elemenhari.value = jadwal.hari;
+    elemenjam.value = jadwal.jam;
+    elemenwaktu.value = jadwal.waktu;
+    elemenkelas.value = jadwal.kelas;
+    elemennamaguru.value = jadwal.namaguru;
 
-  <footer class="py-3 bg-dark-subtle mt-auto">
-    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-      <li class="nav-item"><a href="index.html" class="nav-link px-2 text-body-secondary">Tambah absensi</a></li>
-    </ul>
-    <p class="text-center text-body-secondary">&copy; 2024 ABSEN SISWA</p>
+tombolubah.addEventListener('click', async function(el) {
+        el.preventDefault();
 
-  </footer>
+    console.log(elemenhari.value);
+    console.log(elemenjam.value);
+    console.log(elemenwaktu.value);
+    console.log(elemenkelas.value);
+    console.log(elemenmapel.value);
+    console.log(elemenamaguru.value);
+    
+
+    await ubahjadwalpelajaran(docId, elemenhari.value, elemenjam.value, elemenwaktu.value, elemenmapel.value, elemenkelas.value, elemennamaguru.value);
+
+    window.location.href = 'index.html';
+
+  });
+</script>
+
+<footer class="py-3 bg-dark-subtle mt-auto">
+  <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+    <li class="nav-item"><a href="index.html" class="nav-link px-2 text-body-secondary">Tambah jadwal</a></li>
+  </ul>
+  <p class="text-center text-body-secondary">&copy; 2024 JADWAL SISWA</p>
+
+</footer>
 
 </body>
 
